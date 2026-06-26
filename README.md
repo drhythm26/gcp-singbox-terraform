@@ -55,9 +55,11 @@
 ./start.sh destroy    # 一键销毁
 ```
 ## 核心设计 / 亮点
+- 双区域部署：hk日常低延迟，sg兼顾低延迟访问AI
 - 配置即代码：templatefile 嵌套渲染（config.json → startup script），
   服务端配置随基础设施一起版本化
 - 客户端配置自动生成：local_file 把节点 IP/密钥渲染进客户端配置，
   apply 完直接可用，代替服务端生成配置，避免手动获取配置
 - 密钥自动化：gen-keys.sh 自动生成 reality 密钥对/uuid/short_id
 - 一键编排：start.sh 把 gen-keys + apply 封装成 build/destroy
+- 密钥不入库：reality 密钥/uuid 自动生成到 *.auto.tfvars 并 gitignore
