@@ -18,12 +18,12 @@ destroy() {
 }
 
 main() {
-    [[ -z $1 ]] && echo "请传入参数" && exit 1
+    [[ -z ${1:-} ]] && echo "请传入参数" && exit 1
     local flag=$1
     if [[ "$flag" == "build" ]];then
         build
-    elif [[ "$flag" == "destroy" ]]
-        destory
+    elif [[ "$flag" == "destroy" ]];then
+        destroy
     else
         echo "使用如下格式"
         echo "./start build"
