@@ -49,5 +49,4 @@ locals {
   startup = templatefile("templates/startscript.sh.tpl", {
     config_json = local.config
   })
-
 }

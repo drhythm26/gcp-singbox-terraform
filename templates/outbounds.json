@@ -1,0 +1,46 @@
+{
+    "outbounds": [
+        {
+            "flow": "xtls-rprx-vision",
+            "server": "${server_hk}",
+            "server_port": 443,
+            "tag": "hk-reality",
+            "tls": {
+                "enabled": true,
+                "reality": {
+                    "enabled": true,
+                    "public_key": "${public_key}",
+                    "short_id": "${short_id}"
+                },
+                "server_name": "www.apple.com",
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "type": "vless",
+            "uuid": "${uuid}"
+        },
+        {
+            "flow": "xtls-rprx-vision",
+            "server": "${server_sg}",
+            "server_port": 443,
+            "tag": "sg-reality",
+            "tls": {
+                "enabled": true,
+                "reality": {
+                    "enabled": true,
+                    "public_key": "${public_key}",
+                    "short_id": "${short_id}"
+                },
+                "server_name": "www.apple.com",
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "type": "vless",
+            "uuid": "${uuid}"
+        }
+    ]
+}
