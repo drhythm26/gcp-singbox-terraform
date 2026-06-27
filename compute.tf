@@ -16,7 +16,14 @@ resource "google_compute_instance" "hk_node" {
       network_tier = "PREMIUM"
     }
   }
+  service_account {
+    email  = google_service_account.singbox_node.email
+    scopes = []
+  }
   metadata_startup_script = local.startup
+  depends_on = [
+    google_project_service.compute,
+  ]
 }
 
 resource "google_compute_instance" "sg_node" {
@@ -37,7 +44,14 @@ resource "google_compute_instance" "sg_node" {
       network_tier = "PREMIUM"
     }
   }
+  service_account {
+    email  = google_service_account.singbox_node.email
+    scopes = []
+  }
   metadata_startup_script = local.startup
+  depends_on = [
+    google_project_service.compute,
+  ]
 }
 
 locals {
