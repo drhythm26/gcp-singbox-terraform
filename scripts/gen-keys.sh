@@ -6,11 +6,11 @@ if [[ -f "$FILE" ]]; then
   exit 0
 fi
 
-realitykeypair=$(docker run --rm ghcr.io/sagernet/sing-box:1.13.14 generate reality-keypair)
+realitykeypair=$(docker run --rm ghcr.io/sagernet/sing-box:v1.13.14 generate reality-keypair)
 publickey=$(awk '/PublicKey/ {print $2}' <<< "$realitykeypair")
 privatekey=$(awk '/PrivateKey/ {print $2}' <<< "$realitykeypair")
-uuid=$(docker run --rm ghcr.io/sagernet/sing-box:1.13.14 generate uuid)
-shortid=$(docker run --rm ghcr.io/sagernet/sing-box:1.13.14 generate rand 8 --hex)
+uuid=$(docker run --rm ghcr.io/sagernet/sing-box:v1.13.14 generate uuid)
+shortid=$(docker run --rm ghcr.io/sagernet/sing-box:v1.13.14 generate rand 8 --hex)
 
 
 tee keys.auto.tfvars << EOF

@@ -35,7 +35,7 @@ generate_docker_compose() {
 services:
   sing-box:
     container_name: sing-box
-    image: ghcr.io/sagernet/sing-box:1.13.14
+    image: ghcr.io/sagernet/sing-box:v1.13.14
     network_mode: host
     restart: unless-stopped
     volumes:
