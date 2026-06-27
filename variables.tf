@@ -29,3 +29,6 @@ variable "uuid" {
 variable "short_id" {
   type = string
 }
+variable "client_config_path" {
+  type = string
+}

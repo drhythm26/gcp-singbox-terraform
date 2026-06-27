@@ -3,7 +3,6 @@
 set -eu
 
 install_docker() {
-    
     apt update -qq
     apt install -yqq ca-certificates curl
     install -m 0755 -d /etc/apt/keyrings
@@ -36,7 +35,7 @@ generate_docker_compose() {
 services:
   sing-box:
     container_name: sing-box
-    image: ghcr.io/sagernet/sing-box
+    image: ghcr.io/sagernet/sing-box:1.13.14
     network_mode: host
     restart: unless-stopped
     volumes:
@@ -47,6 +46,7 @@ YAML
 }
 
 main() {
+    [[ -f /etc/apt/sources.list.d/docker.sources ]] && return
     install_docker
     generate_config
     generate_docker_compose
